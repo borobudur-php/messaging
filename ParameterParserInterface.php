@@ -17,7 +17,7 @@ use Borobudur\Component\Http\RequestInterface;
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-interface ParameterParseInterface
+interface ParameterParserInterface
 {
     /**
      * Parse request values to parameter.

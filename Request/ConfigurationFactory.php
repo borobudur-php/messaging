@@ -14,7 +14,7 @@ namespace Borobudur\Component\Messaging\Request;
 
 use Borobudur\Component\Http\RequestInterface;
 use Borobudur\Component\Messaging\Metadata\RegistryInterface;
-use Borobudur\Component\Messaging\ParameterParseInterface;
+use Borobudur\Component\Messaging\ParameterParserInterface;
 use Borobudur\Component\Parameter\Parameter;
 
 /**
@@ -36,7 +36,7 @@ final class ConfigurationFactory implements ConfigurationFactoryInterface
     private $registry;
 
     /**
-     * @var ParameterParseInterface
+     * @var ParameterParserInterface
      */
     private $parameterParser;
 
@@ -45,7 +45,7 @@ final class ConfigurationFactory implements ConfigurationFactoryInterface
      */
     private $defaultParameters;
 
-    public function __construct(RegistryInterface $registry, ParameterParseInterface $parameterParser, array $defaultParameters = null)
+    public function __construct(RegistryInterface $registry, ParameterParserInterface $parameterParser, array $defaultParameters = null)
     {
         $this->registry = $registry;
         $this->parameterParser = $parameterParser;

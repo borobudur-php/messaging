@@ -19,7 +19,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 /**
  * @author  Iqbal Maulana <iq.bluejack@gmail.com>
  */
-final class ParameterParser implements ParameterParseInterface
+final class ParameterParser implements ParameterParserInterface
 {
     /**
      * @var ContainerInterface

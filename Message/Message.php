@@ -28,11 +28,13 @@ abstract class Message implements MessageInterface, PayloadMessageInterface, Met
 
     final public function __construct(array $payload, array $metadata = null)
     {
-        $this->setMessagePayload($payload);
+        $this->setMessagePayload($this->transformPayload($payload));
 
         if (null !== $metadata) {
             $this->messageMetadata = $metadata;
         }
+
+        $this->init();
     }
 
     /**
@@ -67,6 +69,18 @@ abstract class Message implements MessageInterface, PayloadMessageInterface, Met
         $metadata[$key] = $value;
 
         return new static($payload, $metadata);
+    }
+
+    /**
+     * Use this method to transform payload
+     *
+     * @param array $payload
+     *
+     * @return array
+     */
+    protected function transformPayload(array $payload): array
+    {
+        return $payload;
     }
 
     /**

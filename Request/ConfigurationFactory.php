@@ -84,8 +84,11 @@ final class ConfigurationFactory implements ConfigurationFactoryInterface
     private function parseParameters(RequestInterface $request): array
     {
         $parameters = [];
-        $versionHeader = reset($request->getHeader(self::API_VERSION_HEADER));
-        $groupHeader = reset($request->getHeader(self::API_GROUPS_HEADER));
+        $versionHeaders = $request->getHeader(self::API_VERSION_HEADER);
+        $groupHeaders = $request->getHeader(self::API_GROUPS_HEADER);
+
+        $versionHeader = reset($versionHeaders);
+        $groupHeader = reset($groupHeaders);
 
         if (preg_match(self::API_VERSION_REGEXP, $versionHeader, $matches)) {
             $parameters['serialization_version'] = $matches['version'];
